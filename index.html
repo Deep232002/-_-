@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="data">
+        <h1>
+            Codeclause <br><span class="color">Age Calculator</span>
+        </h1>
+        <div class="date">
+            <input type="date" id="date">
+            <button class="submit" onclick={getdata()}>Calculate</button>
+        </div>
+        <p id="result"></p>
+    </div>
+    </div>
+
+    <script>
+
+        let data=document.getElementById('date');
+        
+        function getdata(){
+            let data2=new Date(data.value)
+            let result=document.getElementById('result')
+             let day=data2.getDate();
+             let month=data2.getMonth()+1;
+             let year=data2.getFullYear();
+
+            let data3=new Date();
+            let day2=data3.getDate();
+             let month2=data3.getMonth()+1;
+             let year2=data3.getFullYear();
+
+             let d,m,y;
+
+             y=year2-year;
+              
+             if(month2>=month){
+                m=month2-month
+             }else{
+                y--;
+                m=12+month2-month
+             }
+
+             if(day2>=day){
+                d=day2-day;
+             }
+             else{
+                m--;
+                  d=gatDayinMonth(year,month)-day+day2;
+             }
+
+             result.innerHTML=`you are ${d} days ${m} months ${y} years old`;
+           
+             
+             
+            }
+            function gatDayinMonth(year,month){
+             return new Date(year,month,0).getDate();
+            
+            }
+    </script>
+</body>
+</html>
